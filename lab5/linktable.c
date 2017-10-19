@@ -1,22 +1,3 @@
-
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @wccgeqian
- Sign out
- Watch 1
-  Fork 0 wsqat/gaoruan
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights
-Branch: master Find file Copy pathgaoruan/lab5/linktable.c
-f1b3714  23 hours ago
-@wsqat wsqat add lab5/
-1 contributor
-RawBlameHistory     
-Executable File  171 lines (171 sloc)  3.95 KB
 #include<stdio.h>
 #include<stdlib.h>
 #include"linktable.h"
