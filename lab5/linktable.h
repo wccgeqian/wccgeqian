@@ -3,49 +3,38 @@
 /* Copyright (C) SSE-USTC, 2012-2013                                */
 /*                                                                  */
 /*  FILE NAME             :  linktabe.h                             */
-/*  PRINCIPAL AUTHOR      :  Mengning                               */
+/*  PRINCIPAL AUTHOR      :  Wang Shiqing                           */
 /*  SUBSYSTEM NAME        :  LinkTable                              */
 /*  MODULE NAME           :  LinkTable                              */
 /*  LANGUAGE              :  C                                      */
 /*  TARGET ENVIRONMENT    :  ANY                                    */
-/*  DATE OF FIRST RELEASE :  2012/12/30                             */
+/*  DATE OF FIRST RELEASE :  2017/10/18                             */
 /*  DESCRIPTION           :  interface of Link Table                */
 /********************************************************************/
 
 /*
  * Revision log:
  *
- * Created by Mengning,2012/12/30
+ * Created by Wang Shiqing,2017/10/18
  *
  */
 
 #ifndef _LINK_TABLE_H_
 #define _LINK_TABLE_H_
-
 #include <pthread.h>
-
 #define SUCCESS 0
 #define FAILURE (-1)
-
 /*
  * LinkTable Node Type
  */
 typedef struct LinkTableNode
 {
-    struct LinkTableNode * pNext;
+    struct LinkTableNode *pNext;
 }tLinkTableNode;
-
 /*
  * LinkTable Type
  */
-typedef struct LinkTable
-{
-    tLinkTableNode *pHead;
-    tLinkTableNode *pTail;
-    int			SumOfNode;
-    pthread_mutex_t mutex;
-}tLinkTable;
-
+typedef struct LinkTable tLinkTable;
 /*
  * Create a LinkTable
  */
@@ -66,7 +55,7 @@ int DelLinkTableNode(tLinkTable *pLinkTable,tLinkTableNode * pNode);
  * Search a LinkTableNode from LinkTable
  * int Conditon(tLinkTableNode * pNode);
  */
-tLinkTableNode * SearchLinkTableNode(tLinkTable *pLinkTable, int Conditon(tLinkTableNode * pNode));
+tLinkTableNode * SearchLinkTableNode(tLinkTable *pLinkTable, int Conditon(tLinkTableNode * pNode,void * args),void *args);
 /*
  * get LinkTableHead
  */
@@ -75,7 +64,5 @@ tLinkTableNode * GetLinkTableHead(tLinkTable *pLinkTable);
  * get next LinkTableNode
  */
 tLinkTableNode * GetNextLinkTableNode(tLinkTable *pLinkTable,tLinkTableNode * pNode);
-
 #endif /* _LINK_TABLE_H_ */
-
 
